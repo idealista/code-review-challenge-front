@@ -1,0 +1,1 @@
+export const MAX_ADS_TO_VISUALIZE = 5;
