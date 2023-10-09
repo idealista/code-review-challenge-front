@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./IoC/init";
-import App from "../src/webapp";
+import App from "../webapp";
 import './assets/normalize.css';
 import './assets/main.css';
 

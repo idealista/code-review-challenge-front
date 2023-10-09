@@ -1,4 +1,4 @@
-import container from "../../bootstrap/IoC/container";
+import container from "../bootstrap/IoC/container";
 
 const setAds = (ads) => ({
   type: "SET_ADS",
