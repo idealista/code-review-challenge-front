@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import AdList from "../ui/containers/AdList";
+import AdListContainer from "../ui/containers/AdList";
 import useReducer from "../ui/hooks/useReducer";
 import reducer from "../store/reducer";
 import init from "../store/init";
@@ -15,7 +15,7 @@ export default function () {
         dispatch
       }}
     >
-      <AdList />
+      <AdListContainer />
     </AppContext.Provider>
   );
 }

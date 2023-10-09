@@ -5,7 +5,7 @@ import { useAppContext } from "../../webapp/context/appContext";
 import selectors from "../../store/selectors";
 import useGetLang from "../hooks/useGetLang";
 
-export default function () {
+const AdListContainer = () => {
   const { state, dispatch } = useAppContext();
   const [totalAds, setTotalAds] = React.useState(0);
   useEffect(() => {
@@ -47,3 +47,5 @@ export default function () {
     </>
   );
 }
+
+export default AdListContainer;
