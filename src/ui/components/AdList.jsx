@@ -2,7 +2,7 @@ import React from 'react';
 import Ad from './Ad';
 import { MAX_ADS_TO_VISUALIZE } from "../constants/ads";
 
-export default ({ ads, onDiscard }) => {
+const AdList = ({ ads, onDiscard }) => {
   return (
     <div>
       {ads.slice(0, MAX_ADS_TO_VISUALIZE).map((ad) => (
@@ -18,3 +18,5 @@ export default ({ ads, onDiscard }) => {
     </div>
   );
 };
+
+export default AdList;
