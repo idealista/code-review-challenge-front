@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo } from "react";
 import AdList from "../components/AdList";
 import actions from "../../store/actions";
-import AppContext from "../../webapp/context/appContext";
+import { useAppContext } from "../../webapp/context/appContext";
 import selectors from "../../store/selectors";
 import useGetLang from "../hooks/useGetLang";
 
 export default function () {
-  const { state, dispatch } = React.useContext(AppContext);
+  const { state, dispatch } = useAppContext();
   const [totalAds, setTotalAds] = React.useState(0);
   useEffect(() => {
     dispatch(actions.getAds());
