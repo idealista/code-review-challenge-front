@@ -1,4 +1,5 @@
 import container from "../bootstrap/IoC/container";
+import { v4 as uuidv4 } from "uuid";
 
 const setAds = (ads) => ({
   type: "SET_ADS",
@@ -43,9 +44,10 @@ const getAds = () => (dispatch) => {
 };
 
 const addNewAd = (title) => (dispatch) => {
+  const id = uuidv4();
   dispatch(
     createNewAd({
-      id: Math.floor(Math.random() * 100),
+      id: id,
       title: title,
       active: true,
       kind: "REGULAR"
