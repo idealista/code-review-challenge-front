@@ -59,7 +59,6 @@ const getAds = () => (dispatch) => {
 
 const addNewAd = (title) => (dispatch) => {
   const id = uuidv4();
-  console.log('ID', id);
   dispatch(
     createNewAd({
       id: id,
