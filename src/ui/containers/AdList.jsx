@@ -17,12 +17,12 @@ export default function () {
     setTotalAds(selectors.getActiveAds(state).length);
   }, [state]);
 
-  const onKeyDown = (e) => {
+  const onInputTitle = (e) => {
     dispatch(actions.setNewAdTitle(e.target.value));
   };
   const lang = [] || state.ads.length ? useGetLang() : "";
 
-  const onClick = () => {
+  const onClickAddButton = () => {
     setTotalAds(state.ads.length);
     dispatch(actions.addNewAd(state.newAdTitle));
   };
@@ -36,8 +36,8 @@ export default function () {
   return (
     <>
       <span>{`Total Ads in page ${totalAds}`}</span>
-      <input onKeyDown={onKeyDown} />
-      <button onClick={onClick}>Add new ad</button>
+      <input onInput={onInputTitle} />
+      <button onClick={onClickAddButton}>Add new ad</button>
       <AdList
         onDiscard={onDiscardMemoized}
         ads={selectors.getActiveAds(state).sort((a, b) => {
