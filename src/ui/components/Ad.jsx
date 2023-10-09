@@ -13,8 +13,8 @@ export default class Ad extends React.Component {
         <picture>
           <img src="https://picsum.photos/seed/picsum/400/250" alt="imagen" />
         </picture>
-        <div class="text-info">
-          <a href="/" class="link-inmobiliaria">
+        <div className="text-info">
+          <a href="/" className="link-inmobiliaria">
             <img
               src="https://picsum.photos/seed/picsum/75/35"
               alt="inmobiliaria"
@@ -23,8 +23,8 @@ export default class Ad extends React.Component {
           <h2>
             <a href="/">{this.props.title}</a>
           </h2>
-          <strong class="price">1.000.000 €</strong>
-          <div class="props">
+          <strong className="price">1.000.000 €</strong>
+          <div className="props">
             <span>3 hab.</span>
             <span>143 m²</span>
             <span>Bajo exterior con ascensor</span>
@@ -33,7 +33,7 @@ export default class Ad extends React.Component {
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis
             corporis ipsam obcaecati maxime.
           </p>
-          <div class="buttons">
+          <div className="buttons">
             <button onClick={this.onClickDiscardButton}> Discard </button>
           </div>
         </div>
