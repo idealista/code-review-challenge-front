@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import AdList from "../components/AdList";
 import actions from "../../store/actions";
 import { useAppContext } from "../../webapp/context/appContext";
@@ -7,31 +7,28 @@ import useGetLang from "../hooks/useGetLang";
 
 const AdListContainer = () => {
   const { state, dispatch } = useAppContext();
-  const [totalAds, setTotalAds] = React.useState(0);
-  useEffect(() => {
-    dispatch(actions.getAds());
-    setTotalAds(state.ads.length);
-  }, []);
+  const totalAds = selectors.getActiveAds(state).length;
 
   useEffect(() => {
-    setTotalAds(selectors.getActiveAds(state).length);
-  }, [state]);
+    dispatch(actions.getAds());
+  }, []);
+
 
   const onInputTitle = (e) => {
     dispatch(actions.setNewAdTitle(e.target.value));
   };
+
+  // Why do we have here this line? Also, left side of the expression does
+  // not have any effect
   const lang = [] || state.ads.length ? useGetLang() : "";
 
   const onClickAddButton = () => {
-    setTotalAds(state.ads.length);
     dispatch(actions.addNewAd(state.newAdTitle));
   };
 
-  const onDiscardMemoized = useMemo(() => {
-    return (adId) => {
-      dispatch(actions.removeAd(adId));
-    };
-  }, []);
+  const onDiscardAd = (adId) => {
+    dispatch(actions.removeAd(adId));
+  }
 
   return (
     <>
@@ -39,7 +36,7 @@ const AdListContainer = () => {
       <input onInput={onInputTitle} />
       <button onClick={onClickAddButton}>Add new ad</button>
       <AdList
-        onDiscard={onDiscardMemoized}
+        onDiscard={onDiscardAd}
         ads={selectors.getActiveAds(state).sort((a, b) => {
           return a - b;
         })}
