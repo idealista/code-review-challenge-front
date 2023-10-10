@@ -8,13 +8,6 @@ Hay un problema con jest.mock en codesandbox. De momento
 no mockeo el container que se importa
 */
 
-const getAdsSuccessMock = {
-  execute: jest.fn(() => Promise.resolve([]))
-};
-
-const getAdsFailureMock = {
-  execute: jest.fn(() => Promise.reject())
-};
 afterEach(() => {
   jest.clearAllMocks();
 });
@@ -28,8 +21,11 @@ describe("Actions tests", () => {
   });
 
   test("Given getAdsService with promise resolve, getAds action thunk should dispatch the expected actions", async () => {
+    const getAdsSuccessMock = {
+      execute: jest.fn(() => Promise.resolve([]))
+    };
     container.add("GetAds", () => getAdsSuccessMock);
-    const flushPromises = () => new Promise(setImmediate);
+    const flushPromises = () => new Promise(setTimeout);
     actions.getAds()(dispatchMock);
     await flushPromises();
     expect(dispatchMock).toHaveBeenCalledTimes(3);
@@ -42,8 +38,11 @@ describe("Actions tests", () => {
   });
 
   test("Given getAdsService with promise reject, getAds action thunk should dispatch the expected actions", async () => {
+    const getAdsFailureMock = {
+      execute: jest.fn(() => Promise.reject())
+    };
     container.add("GetAds", () => getAdsFailureMock);
-    const flushPromises = () => new Promise(setImmediate);
+    const flushPromises = () => new Promise(setTimeout);
     actions.getAds()(dispatchMock);
     await flushPromises();
     expect(dispatchMock).toHaveBeenCalledTimes(2);
