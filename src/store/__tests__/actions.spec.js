@@ -1,6 +1,6 @@
 import actions from "../actions";
 
-import container from "../../../../bootstrap/IoC/container";
+import container from "../../bootstrap/IoC/container";
 const dispatchMock = jest.fn();
 
 /*
