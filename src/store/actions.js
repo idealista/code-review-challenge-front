@@ -46,13 +46,7 @@ const getAds = () => (dispatch) => {
       dispatch(stopLoading());
     })
     .catch(() => {
-      //Aquí se podría lanzar un console.error("Error al obtener los anuncios:", error);
-      /*
-        Además de registrar el error, puedes considerar tomar otras medidas, como mostrar un mensaje
-        de error al usuario o realizar una acción específica en función del tipo de error (por ejemplo,
-        redirigir al usuario a una página de error). La respuesta exacta depende de la naturaleza de
-        tu aplicación y cómo deseas manejar los errores en el contexto de la experiencia del usuario.
-      */
+      // Aquí se podría lanzar un console.error("Error al obtener los anuncios:", error);
       dispatch(stopLoading());
     });
 };

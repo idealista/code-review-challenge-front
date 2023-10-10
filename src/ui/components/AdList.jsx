@@ -1,6 +1,6 @@
 import React from 'react';
 import Ad from './Ad';
-import { MAX_ADS_TO_VISUALIZE } from "../constants/ads";
+import { MAX_ADS_TO_VISUALIZE } from "../../domain/constants";
 
 const AdList = ({ ads, onDiscard }) => {
   return (
